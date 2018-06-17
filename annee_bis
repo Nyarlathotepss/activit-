@@ -1,0 +1,13 @@
+annee=input("Saisissez une annee:")
+annee=int(annee)
+
+i = annee%4
+x = annee%100
+z = annee%400
+
+if i==0 and x==0 and z==0:
+  print("alors l'annee est bis")
+if i==0 and x!=0:
+  print("alors l'annee est bis")
+else:
+  print("alors l'annee n'est pas bis")
