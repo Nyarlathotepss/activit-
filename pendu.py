@@ -20,8 +20,8 @@ for lettre in mot:
 print(mot_cache)
 
 # verifier si lettre_saisie existe dans mot
-for lettre in mot 
-  if lettre_saisie == lettre
-    mot_cache += lettre_saisie
-  else:
-    mot_cache += "*"
+for lettre in mot:
+    if lettre_saisie == lettre:
+       position = mot.find(lettre_saisie)
+       print(position)
+       mot_cache[position] = lettre_saisie
