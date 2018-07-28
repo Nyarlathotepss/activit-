@@ -8,48 +8,46 @@ list_t_p = []
 list_t = []
 
 n = int(input())  # the number of temperatures to analyse
+if not n :
+    chiffre_a_afficher = 0
+    print(chiffre_a_afficher)
+while n > 10000:
+    n = int(input())
 
-while True :
-    if not n :
-        chiffre_a_afficher = 0
-        break
-    while n > 10000:
-        n = int(input())
-    
-    for i in input().split() :
-        # t: a temperature expressed as an integer ranging from -273 to 5526
-        t = int(i)
-        list_t.append(t)
-    # On va separer les valeurs positives et negatives en 2 listes distintes.
-    for i in list_t:
-        if i > 0:
-            list_t_p.append(i)
-        elif i < 0:
-            list_t_n.append(i)
-     
-    # On va ajouter 1 valeur max si la liste est vide : 
-    if len(list_t_n) == 0  :
-        list_t_n.append(-273)
-    elif len(list_t_p) == 0  :
-        list_t_p.append(5526)
-     
-     # Tri des 2 listes du plus petit au plus grand
-    list_t_n.sort(reverse=True)
-    list_t_p.sort(reverse=False)
-    
-    # On recupere la premiere valeur des 2 tableaux
-    chiffre_p = list_t_p[0]
-    chiffre_n = list_t_n[0]
-    chiffre_n_modifier = chiffre_n * -1 # On passe le chiffre negatif en positif pour pouvoir le comparer
-    
-    if chiffre_p == chiffre_n_modifier:
-        chiffre_a_afficher = chiffre_p
-    elif chiffre_p < chiffre_n_modifier:
-        chiffre_a_afficher = chiffre_p
-    else:
-        chiffre_a_afficher = chiffre_n
-    
-    # Write an action using print
-    # To debug: print("Debug messages...", file=sys.stderr)
+for i in input().split():
+    # t: a temperature expressed as an integer ranging from -273 to 5526
+    t = int(i)
+    list_t.append(t)
+# On va separer les valeurs positives et negatives en 2 listes distintes.
+for i in list_t:
+    if i > 0:
+        list_t_p.append(i)
+    elif i < 0:
+        list_t_n.append(i)
+ 
+# On va ajouter 1 valeur max si la liste est vide : 
+if len(list_t_n) == 0  :
+    list_t_n.append(-273)
+elif len(list_t_p) == 0  :
+    list_t_p.append(5526)
+ 
+ # Tri des 2 listes du plus petit au plus grand
+list_t_n.sort(reverse=True)
+list_t_p.sort(reverse=False)
+
+# On recupere la premiere valeur des 2 tableaux
+chiffre_p = list_t_p[0]
+chiffre_n = list_t_n[0]
+chiffre_n_modifier = chiffre_n * -1 # On passe le chiffre negatif en positif pour pouvoir le comparer
+
+if chiffre_p == chiffre_n_modifier:
+    chiffre_a_afficher = chiffre_p
+elif chiffre_p < chiffre_n_modifier:
+    chiffre_a_afficher = chiffre_p
+else:
+    chiffre_a_afficher = chiffre_n
+
+# Write an action using print
+# To debug: print("Debug messages...", file=sys.stderr)
 
 print(chiffre_a_afficher)
